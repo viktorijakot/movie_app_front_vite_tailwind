@@ -3,10 +3,12 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Header from "./components/layout/Header";
+import { Toaster } from "react-hot-toast";
 
 export default function App() {
   return (
     <div>
+      <Toaster />
       <Header />
       <Routes>
         <Route path="/home" element={<HomePage />} />
