@@ -32,7 +32,7 @@ function LoginPage() {
       .then((resp) => {
         console.log("resp", resp);
         toast.success("Welcome");
-        login(data.email, resp.data.token);
+        login(data.email, resp.data.token, resp.data.userName);
         // navigate("/shop", { replace: true });
       })
       .catch((error) => {
