@@ -6,7 +6,7 @@ function Header() {
   const navigate = useNavigate();
   function handleLogout() {
     logout();
-    navigate("/login");
+    navigate("/home");
   }
   return (
     <div className="bg-slate-300">
