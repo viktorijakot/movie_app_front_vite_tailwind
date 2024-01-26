@@ -2,6 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+// D1F0B1
+// B6CB9E
+// 92B4A7
+// 8C8A93
+
+// 000000
+// 0E402D
+// 295135
+// 5A6650
+
+// EA526F
+// 070600
+// F7F7FF
+// 23B5D3
+
+// 1F271B
+// 19647E
+// 28AFB0
+// F4D35E
 body {
-  font-family: "Open Sans", sans-serif;
+  color: #1f271b;
+  font-family: "Roboto Mono", monospace;
+  background-color: #28afb0;
+}
+
+.headerContainer {
+  background-color: #28afb0;
+  // box-shadow: 0 2px 0 0 #1f271b;
+  box-shadow: 0 0.5em 1em -0.125em rgba(#1f271b, 0.1);
+  position: fixed;
+  width: 100%;
+  .login {
+    color: #1f271b;
+  }
+  .logo {
+    font-family: "Rubik Glitch Pop", system-ui;
+  }
+  .signUp {
+    background-color: #f4d35e;
+    color: #1f271b;
+    transition: 0.25s;
+    box-shadow: 0 2px 0 0 #1f271b;
+    font-weight: 600;
+  }
+  .signUp:hover {
+    color: #28afb0;
+    // margin-top: 2px;
+    // margin-bottom: -2px;
+    box-shadow: none;
+  }
+}
+@media (max-width: 425px) {
+  .headerContainer {
+    header {
+      padding: 0 10px;
+    }
+    .logoLink {
+      flex-direction: column;
+      font-size: 15px;
+      padding: 0 10px;
+    }
+    .login,
+    .signUp {
+      font-size: 15px;
+      padding: 10px 10px;
+    }
+  }
 }

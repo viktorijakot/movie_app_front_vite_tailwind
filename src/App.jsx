@@ -9,9 +9,11 @@ export default function App() {
   return (
     <div>
       <Toaster />
+
       <Header />
+
       <Routes>
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
       </Routes>
