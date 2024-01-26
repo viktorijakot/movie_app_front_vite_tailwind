@@ -28,7 +28,7 @@ function Header() {
               </NavLink>
               <NavLink
                 className={"signUp px-3 py-2 sm:px-5 sm:py-3 rounded shadow"}
-                to={"/register"}
+                to={"/sign-up"}
               >
                 Sign up
               </NavLink>

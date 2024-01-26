@@ -50,7 +50,7 @@ function RegisterPage() {
   }
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto pt-24">
       <h1 className="text-3xl ">RegisterPage</h1>
       <form onSubmit={formik.handleSubmit} className="mt-4" noValidate>
         <div className="mb-4">

@@ -44,7 +44,7 @@ function LoginPage() {
   }
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto pt-24">
       <h1 className="text-3xl">LoginPage</h1>
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum
