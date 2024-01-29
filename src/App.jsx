@@ -5,6 +5,7 @@ import RegisterPage from "./pages/RegisterPage";
 import Header from "./components/layout/Header";
 import { Toaster } from "react-hot-toast";
 import Footer from "./components/layout/Footer";
+import MoviesPage from "./pages/MoviesPage";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/sign-up" element={<RegisterPage />} />
+        <Route path="/movie-list" element={<MoviesPage />} />
       </Routes>
       <Footer />
     </div>

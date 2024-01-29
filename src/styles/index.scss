@@ -27,6 +27,7 @@ body {
   color: #1f271b;
   font-family: "Roboto Mono", monospace;
   background-color: #28afb0;
+  background-image: url(/src/assets/facets.png);
 }
 
 .headerContainer {
@@ -55,6 +56,10 @@ body {
     // margin-top: 2px;
     // margin-bottom: -2px;
     box-shadow: none;
+  }
+  .userSvg {
+    border: 1px solid #f4d35e;
+    border-radius: 50%;
   }
 }
 @media (max-width: 425px) {
@@ -232,10 +237,12 @@ body {
 .footerContainer {
   background-color: #28afb0;
   box-shadow: 0 -0.125em 1em -0.125em rgba(#1f271b, 0.1);
-  top: 0;
   width: 100%;
   z-index: 2;
-  position: relative;
+  left: 0;
+  bottom: 0;
+  // position: absolute;
+  // bottom: 0;
   footer {
     margin: 0 auto;
     text-align: center;
