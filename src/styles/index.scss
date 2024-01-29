@@ -21,7 +21,9 @@
 // 19647E
 // 28AFB0
 // F4D35E
+
 body {
+  scroll-behavior: smooth;
   color: #1f271b;
   font-family: "Roboto Mono", monospace;
   background-color: #28afb0;
@@ -32,7 +34,9 @@ body {
   // box-shadow: 0 2px 0 0 #1f271b;
   box-shadow: 0 0.5em 1em -0.125em rgba(#1f271b, 0.1);
   position: fixed;
+  top: 0;
   width: 100%;
+  z-index: 2;
   .login {
     color: #1f271b;
   }
@@ -67,6 +71,180 @@ body {
     .signUp {
       font-size: 15px;
       padding: 10px 10px;
+    }
+  }
+}
+.home {
+  h1 {
+    font-size: xx-large;
+    font-weight: 900;
+  }
+  h1 span {
+    color: #f4d35e;
+  }
+  .signUp {
+    background-color: #f4d35e;
+    color: #1f271b;
+    transition: 0.25s;
+    box-shadow: 0 2px 0 0 #1f271b;
+    font-weight: 600;
+  }
+  .signUp:hover {
+    color: #28afb0;
+    // margin-top: 2px;
+    // margin-bottom: -2px;
+    box-shadow: none;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .card {
+    width: 280px;
+    height: 500px;
+    border-radius: 20px;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    // cursor: pointer;
+
+    // z-index: -1;
+  }
+
+  img {
+    padding-top: 20px;
+    width: 90%;
+    transition: 1s;
+    margin: 0 auto;
+    border-radius: 15px;
+  }
+  .top,
+  .bottom {
+    text-align: center;
+  }
+
+  .bottom {
+    padding: 0 15px;
+    position: absolute;
+    top: 100%;
+    transition: 1s;
+  }
+  // button {
+  //   // background-color: goldenrod;
+  //   // padding: 10px;
+  //   // border: none;
+  //   // color: white;
+  // }
+
+  .shape {
+    background-color: #f4d35e;
+    width: 100%;
+    height: 60%;
+    transform: skewY(345deg);
+    position: absolute;
+    top: -15%;
+    transition: 1s;
+  }
+
+  .top {
+    position: absolute;
+    z-index: 1;
+  }
+
+  .card:hover .bottom {
+    top: 50%;
+  }
+
+  .card:hover .shape {
+    transform: skewY(390deg);
+  }
+
+  .card:hover img {
+    width: 40%;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .home {
+    flex-direction: column;
+    .w-2\/4 {
+      width: 90%;
+      text-align: center;
+      margin-bottom: 3rem;
+      h1 {
+        margin-top: 2.5rem;
+        font-size: x-large;
+        font-weight: 800;
+      }
+      .signUp {
+        margin-bottom: 10rem;
+      }
+    }
+    .card {
+      height: 450px;
+    }
+    .card:hover h1 {
+      margin-top: 1.5rem;
+      font-size: large;
+    }
+    .card:hover p {
+      margin-top: 0;
+      font-size: smaller;
+    }
+  }
+}
+
+.modal_box {
+  box-shadow: 0px 4px 8px #1f271b;
+  border-radius: 16px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: #f4d35e;
+  .in {
+    border-bottom: 3px solid #62c0a2;
+    color: #1f271b;
+  }
+  .signUp {
+    background-color: #28afb0;
+  }
+  .signUp:hover {
+    color: #f4d35e;
+  }
+}
+
+@media (max-width: 425px) {
+  .modal_box {
+    width: 80%;
+  }
+}
+// .input {
+//   width: 100%;
+//   outline: none;
+//   border: 0;
+//   font-size: 18px;
+//   border-bottom: 1px solid lightgray;
+//   margin-bottom: 20px;
+// }
+.footerContainer {
+  background-color: #28afb0;
+  box-shadow: 0 -0.125em 1em -0.125em rgba(#1f271b, 0.1);
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  position: relative;
+  footer {
+    margin: 0 auto;
+    text-align: center;
+    font-size: smaller;
+    .link {
+      font-weight: 700;
+    }
+    .link:hover {
+      text-decoration: underline;
     }
   }
 }

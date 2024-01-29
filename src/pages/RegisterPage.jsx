@@ -11,15 +11,15 @@ function RegisterPage() {
   const formik = useFormik({
     initialValues: {
       email: "",
-      userName: "",
+      user_name: "",
       password: "",
-      passwordConfirm: "",
+      confirm_password: "",
     },
     validationSchema: Yup.object({
       email: Yup.string().email().min(3).required(),
-      userName: Yup.string().min(3).required(),
+      user_name: Yup.string().min(3).required(),
       password: Yup.string().min(5).max(30).required(),
-      passwordConfirm: Yup.string()
+      confirm_password: Yup.string()
         .oneOf([Yup.ref("password"), null], "Passwords must match")
         .required(),
     }),
@@ -50,46 +50,28 @@ function RegisterPage() {
   }
 
   return (
-    <div className="container mx-auto pt-24">
-      <h1 className="text-3xl ">RegisterPage</h1>
-      <form onSubmit={formik.handleSubmit} className="mt-4" noValidate>
+    <div className="container mx-auto mt-32 mb-24 lg:w-1/2 xl:w-1/2 modal_box px-4 md:px-16">
+      <h1 className="text-3xl mb-10">
+        Sign <span className="in">up</span>
+      </h1>
+      <form onSubmit={formik.handleSubmit} className="mt-4 mb-2" noValidate>
         <div className="mb-4">
-          <SmartInput
-            id="email"
-            formik={formik}
-            type="email"
-            placeholder="Enter your email"
-          />
+          <SmartInput id="email" formik={formik} type="email" />
         </div>
         <div className="mb-4">
-          <SmartInput
-            id="userName"
-            formik={formik}
-            type="text"
-            placeholder="Enter your user Name"
-          />
+          <SmartInput id="user_name" formik={formik} type="text" />
         </div>
         <div className="mb-4">
-          <SmartInput
-            id="password"
-            formik={formik}
-            type="password"
-            placeholder="Enter your password"
-          />
+          <SmartInput id="password" formik={formik} type="password" />
         </div>
         <div className="mb-4">
-          <SmartInput
-            id="password-Confirm"
-            formik={formik}
-            type="password"
-            placeholder="Repeat your password"
-          />
+          <SmartInput id="confirm_password" formik={formik} type="password" />
         </div>
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="signUp py-2 px-4 mt-8 rounded focus:outline-none focus:shadow-outline"
           type="submit"
         >
-          Register
+          Sign up
         </button>
       </form>
     </div>

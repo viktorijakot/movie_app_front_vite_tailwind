@@ -2,14 +2,16 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import SmartInput from "../components/UI/SmartInput";
 import { useAuthContext } from "../store/AuthCtxProvider";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { URL_BASE } from "../components/helper";
+import sendApiData from "../hooks/sendApiData";
+import useSendApiData from "../hooks/sendApiData";
 
 function LoginPage() {
   const { login } = useAuthContext();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -22,7 +24,7 @@ function LoginPage() {
     onSubmit: (values) => {
       console.log("values ===", values);
 
-      sendAxiosData(values);
+      sendAxiosData(values, "login", "Welcome");
     },
   });
 
@@ -44,14 +46,11 @@ function LoginPage() {
   }
 
   return (
-    <div className="container mx-auto pt-24">
-      <h1 className="text-3xl">LoginPage</h1>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-        voluptatibus, praesentium libero repellat officiis corporis esse iste
-        totam reiciendis voluptatem!
-      </p>
-      <form onSubmit={formik.handleSubmit} className="mt-4" noValidate>
+    <div className="container mx-auto mt-32 mb-24 lg:w-1/2 xl:w-1/2  modal_box px-4 md:px-16">
+      <h1 className="text-3xl mb-10">
+        Log <span className="in">in</span>
+      </h1>
+      <form onSubmit={formik.handleSubmit} className="mt-4 mb-2" noValidate>
         <div className="mb-4">
           <SmartInput
             id="email"
@@ -69,10 +68,10 @@ function LoginPage() {
           />
         </div>
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="signUp py-2 px-4 mt-8 rounded focus:outline-none focus:shadow-outline"
           type="submit"
         >
-          Sign In
+          Log in
         </button>
       </form>
     </div>

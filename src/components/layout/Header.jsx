@@ -35,12 +35,13 @@ function Header() {
             </>
           )}
           {isUserLoggedIn && (
-            <button
+            <Link
+              to={"/"}
               onClick={handleLogout}
-              className={"px-4 py-2 hover:bg-slate-500 hover:text-white"}
+              className={"signUp px-3 py-2 sm:px-5 sm:py-3 rounded shadow"}
             >
               Logout
-            </button>
+            </Link>
           )}
         </nav>
       </header>
