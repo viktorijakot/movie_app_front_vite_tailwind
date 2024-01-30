@@ -1,11 +1,19 @@
 import { useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../store/AuthCtxProvider";
 
 function FlyOutMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { logout } = useAuthContext();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const navigate = useNavigate();
+  function handleLogout() {
+    logout();
+    navigate("/home");
+  }
   return (
     <div className="header-flyout-menu">
       <button
@@ -21,12 +29,30 @@ function FlyOutMenu() {
       {isMenuOpen && (
         <div className="menu-content">
           <ul>
-            <li>Movies</li>
-            <li>Activity</li>
-            <li>Friends</li>
-            <li>Movie search</li>
             <li>
-              <strong>Logout</strong>
+              <NavLink onClick={() => setIsMenuOpen(false)} to={"/movie-list"}>
+                Movies
+              </NavLink>
+            </li>
+            <li>
+              <NavLink onClick={() => setIsMenuOpen(false)} to={"/movie-list"}>
+                Activities
+              </NavLink>
+            </li>
+            <li>
+              <NavLink onClick={() => setIsMenuOpen(false)} to={"/movie-list"}>
+                Friends
+              </NavLink>
+            </li>
+            <li>
+              <NavLink onClick={() => setIsMenuOpen(false)} to={"/movie-list"}>
+                Movie search
+              </NavLink>
+            </li>
+            <li>
+              <Link onClick={handleLogout}>
+                <strong>Logout</strong>
+              </Link>
             </li>
           </ul>
         </div>

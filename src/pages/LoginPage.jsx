@@ -8,10 +8,11 @@ import toast from "react-hot-toast";
 import { URL_BASE } from "../components/helper";
 import sendApiData from "../hooks/sendApiData";
 import useSendApiData from "../hooks/sendApiData";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const { login } = useAuthContext();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -35,7 +36,7 @@ function LoginPage() {
         console.log("resp", resp);
         toast.success("Welcome");
         login(data.email, resp.data.token, resp.data.userName);
-        // navigate("/shop", { replace: true });
+        navigate("/movie-list", { replace: true });
       })
       .catch((error) => {
         console.warn(error);
