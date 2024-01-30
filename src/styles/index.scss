@@ -57,6 +57,12 @@ body {
     // margin-bottom: -2px;
     box-shadow: none;
   }
+  .signUp:hover li {
+    border-top: 2px solid #28afb0;
+    // margin-top: 2px;
+    // margin-bottom: -2px;
+    box-shadow: none;
+  }
   .userSvg {
     border: 1px solid #f4d35e;
     border-radius: 50%;
@@ -70,7 +76,7 @@ body {
     .logoLink {
       flex-direction: column;
       font-size: 15px;
-      padding: 0 10px;
+      padding: 5px 10px;
     }
     .login,
     .signUp {
@@ -252,6 +258,70 @@ body {
     }
     .link:hover {
       text-decoration: underline;
+    }
+  }
+}
+.header-flyout-menu {
+  display: none;
+  position: relative;
+}
+
+.menu-toggle-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.menu-content {
+  margin-top: 3px;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #f4d35e;
+  border: 1px solid #1f271b;
+  padding: 5px;
+  border-radius: 0.25rem;
+  z-index: 1000;
+}
+
+.menu-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu-content li {
+  padding: 5px 5px;
+  cursor: pointer;
+}
+
+.menu-content li:hover {
+  text-decoration: underline;
+}
+.menu li {
+  list-style: none;
+  border-top: 2px solid #1f271b;
+  width: 20px;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 425px) {
+  .header-flyout-menu {
+    display: block;
+  }
+  .mobile {
+    display: none;
+  }
+
+  .userLogo {
+    flex-direction: row;
+    font-size: 15px;
+    padding: 10px 10px;
+  }
+  .footerContainer {
+    footer {
+      font-size: xx-small;
     }
   }
 }
