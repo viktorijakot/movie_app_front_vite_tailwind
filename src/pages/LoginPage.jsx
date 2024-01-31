@@ -41,8 +41,8 @@ function LoginPage() {
       .catch((error) => {
         console.warn(error);
 
-        const klaida = error.response.data.error;
-        toast.error(klaida);
+        const errorAxios = error.response.data.error;
+        toast.error(errorAxios);
       });
   }
 

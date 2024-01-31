@@ -24,6 +24,7 @@ export default function AuthCtxProvider({ children }) {
       email,
       userName,
     });
+    localStorage.setItem("token", token);
   };
 
   const logout = () => {
@@ -32,6 +33,7 @@ export default function AuthCtxProvider({ children }) {
       email: "",
       userName: "",
     });
+    localStorage.removeItem("token");
   };
 
   const isUserLoggedIn = !!authState.token;

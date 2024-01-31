@@ -247,8 +247,8 @@ body {
   z-index: 2;
   left: 0;
   bottom: 0;
-  // position: absolute;
-  // bottom: 0;
+  // position: relative;
+
   footer {
     margin: 0 auto;
     text-align: center;
@@ -326,6 +326,7 @@ body {
   }
 }
 .movieCont {
+  min-height: 100vh;
   .signUp {
     background-color: #f4d35e;
     color: #1f271b;
