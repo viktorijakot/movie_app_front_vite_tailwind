@@ -6,6 +6,7 @@ function HomePage() {
   const imgSrc = `https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT8YtZXAlbrMCz88ob-_Y3OPzw6MgHCvFIO6Cf5PE0CLxG_CGcA`;
   const button = "Read more";
   const title = "Maestro";
+  const link = "/sign-up";
   return (
     <div className="container pt-24 mb-24 ">
       <section className="flex justify-between items-center home">
@@ -30,6 +31,7 @@ function HomePage() {
             description={description}
             imgSrc={imgSrc}
             button={button}
+            link={link}
           />
         </div>
       </section>

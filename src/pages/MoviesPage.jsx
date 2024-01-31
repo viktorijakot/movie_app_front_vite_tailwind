@@ -46,7 +46,7 @@ function MoviesPage() {
           Search
         </button>
       </form>
-      <div className="result grid grid-cols-4 gap-4 mt-5">
+      <div className="result grid grid-cols-4 gap-4 mt-5 max-[425px]:grid-cols-1">
         {movies &&
           movies.map((movie) => {
             return (

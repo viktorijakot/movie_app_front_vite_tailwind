@@ -110,13 +110,12 @@ body {
 
 .wrapper {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 
   .card {
     width: 280px;
-    min-height: 400px;
-    height: 500px;
+    min-height: 500px;
     border-radius: 20px;
     background-color: #fff;
     position: relative;
@@ -160,7 +159,12 @@ body {
   //   width: 70px;
   //   height: 70px;
   // }
-
+  .signUp:hover {
+    color: #28afb0;
+    // margin-top: 2px;
+    // margin-bottom: -2px;
+    box-shadow: none;
+  }
   .top,
   .bottom {
     text-align: center;
@@ -202,7 +206,6 @@ body {
   .top {
     position: absolute;
     z-index: 1;
-    height: 100%;
     // display: flex;
     // justify-content: center;
     // flex-direction: column;
@@ -234,7 +237,8 @@ body {
 }
 
 @media (max-width: 425px) {
-  .home {
+  .home,
+  .movieCont {
     flex-direction: column;
     .w-2\/4 {
       width: 90%;
@@ -250,7 +254,7 @@ body {
       }
     }
     .card {
-      max-height: 450px;
+      overflow: scroll;
     }
     .card:hover h1 {
       margin-top: 1.5rem;
