@@ -52,6 +52,7 @@ function MoviesPage() {
             return (
               <div key={movie.imdbID} className="">
                 <Card
+                  title={movie.Title}
                   imgSrc={movie.Poster}
                   description={movie.Title}
                   button={"Read more"}

@@ -5,6 +5,7 @@ function HomePage() {
   const description = `This love story chronicles the lifelong relationship of conductor-composer Leonard Bernstein and actress Felicia Montealegre Cohn Bernstein.`;
   const imgSrc = `https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT8YtZXAlbrMCz88ob-_Y3OPzw6MgHCvFIO6Cf5PE0CLxG_CGcA`;
   const button = "Read more";
+  const title = "Maestro";
   return (
     <div className="container pt-24 mb-24 ">
       <section className="flex justify-between items-center home">
@@ -24,7 +25,12 @@ function HomePage() {
           </NavLink>
         </div>
         <div className="w-2/4">
-          <Card description={description} imgSrc={imgSrc} button={button} />
+          <Card
+            title={title}
+            description={description}
+            imgSrc={imgSrc}
+            button={button}
+          />
         </div>
       </section>
     </div>

@@ -115,33 +115,72 @@ body {
 
   .card {
     width: 280px;
+    min-height: 400px;
     height: 500px;
     border-radius: 20px;
     background-color: #fff;
     position: relative;
     overflow: hidden;
+    // display: flex;
+    // justify-content: center;
+    // flex-direction: column;
+    // align-items: center;
+
     // cursor: pointer;
 
     // z-index: -1;
   }
 
-  img {
+  .maestro {
     padding-top: 20px;
     width: 90%;
     transition: 1s;
     margin: 0 auto;
     border-radius: 15px;
   }
+  .like {
+    color: #28afb0;
+    font-size: 70px;
+    cursor: pointer;
+    transition: 1s;
+    .number {
+      font-size: 30px;
+    }
+  }
+  .like:hover {
+    color: #28b0b07f;
+  }
+  // .heart {
+  //   width: 60px;
+  //   height: 60px;
+  //   cursor: pointer;
+  //   transition: 1s;
+  // }
+  // .heart:hover {
+  //   width: 70px;
+  //   height: 70px;
+  // }
+
   .top,
   .bottom {
     text-align: center;
   }
-
+  .buttons {
+    margin-top: -2.5rem;
+  }
   .bottom {
     padding: 0 15px;
     position: absolute;
     top: 100%;
     transition: 1s;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .bottom div {
+    width: 100%;
   }
   // button {
   //   // background-color: goldenrod;
@@ -163,10 +202,25 @@ body {
   .top {
     position: absolute;
     z-index: 1;
+    height: 100%;
+    // display: flex;
+    // justify-content: center;
+    // flex-direction: column;
+    // align-items: center;
+  }
+  .top h1 {
+    font-size: x-large;
+    font-weight: 900;
+    // align-self: center;
+    // justify-self: center;
+    text-align: center;
   }
 
   .card:hover .bottom {
     top: 50%;
+  }
+  .card:hover .top h1 {
+    display: none;
   }
 
   .card:hover .shape {
@@ -191,20 +245,23 @@ body {
         font-size: x-large;
         font-weight: 800;
       }
-      .signUp {
-        margin-bottom: 10rem;
+      .buttons {
+        margin-top: -1.5rem;
       }
     }
     .card {
-      height: 450px;
+      max-height: 450px;
     }
     .card:hover h1 {
       margin-top: 1.5rem;
       font-size: large;
     }
-    .card:hover p {
+    .card:hover .description {
       margin-top: 0;
       font-size: smaller;
+    }
+    .like {
+      font-size: 50px;
     }
   }
 }
