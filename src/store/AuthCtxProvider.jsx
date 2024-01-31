@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext({
   token: "",
@@ -25,6 +25,8 @@ export default function AuthCtxProvider({ children }) {
       userName,
     });
     localStorage.setItem("token", token);
+    localStorage.setItem("email", email);
+    localStorage.setItem("userName", userName);
   };
 
   const logout = () => {
@@ -34,7 +36,22 @@ export default function AuthCtxProvider({ children }) {
       userName: "",
     });
     localStorage.removeItem("token");
+    localStorage.removeItem("email");
+    localStorage.removeItem("userName");
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const email = localStorage.getItem("email");
+    const userName = localStorage.getItem("userName");
+    if (token && email && userName) {
+      setAuthState({
+        token,
+        email,
+        userName,
+      });
+    }
+  }, []);
 
   const isUserLoggedIn = !!authState.token;
 
