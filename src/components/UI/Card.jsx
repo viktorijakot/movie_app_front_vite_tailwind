@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import heart from "../../assets/heart.svg";
 
-function Card({ imgSrc, description, button, title, link }) {
+function Card({ imgSrc, description = "", button, title, link }) {
   return (
     <div className="wrapper">
       <div className="card">
@@ -13,7 +13,7 @@ function Card({ imgSrc, description, button, title, link }) {
         </div>
         <div className="bottom">
           <div>
-            <p className="mb-5 mt-3 description">{description}</p>
+            <p className="mb-5 description">{description}</p>
             <div className="flex justify-evenly items-center buttons">
               <p className="like">❤️</p>
               {/* <img className="heart" src={heart} alt="heart" /> */}

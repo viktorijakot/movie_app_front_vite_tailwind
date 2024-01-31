@@ -136,6 +136,8 @@ body {
     transition: 1s;
     margin: 0 auto;
     border-radius: 15px;
+    object-fit: cover;
+    height: 60%;
   }
   .like {
     color: #28afb0;
@@ -218,7 +220,6 @@ body {
     // justify-self: center;
     text-align: center;
   }
-
   .card:hover .bottom {
     top: 50%;
   }
@@ -229,7 +230,9 @@ body {
   .card:hover .shape {
     transform: skewY(390deg);
   }
-
+  .card:hover .description {
+    margin-top: -5rem;
+  }
   .card:hover img {
     width: 40%;
     justify-self: center;
@@ -262,6 +265,7 @@ body {
     }
     .card:hover .description {
       margin-top: 0;
+      margin-bottom: 3rem;
       font-size: smaller;
     }
     .like {
