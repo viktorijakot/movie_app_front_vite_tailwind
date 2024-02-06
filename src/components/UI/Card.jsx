@@ -4,7 +4,7 @@ import heart from "../../assets/heart.svg";
 
 function Card({ imgSrc, description = "", button, title, link }) {
   return (
-    <div className="wrapper">
+    <div className="cardWrapper">
       <div className="card">
         <div className="shape"></div>
         <div className="top">
@@ -18,7 +18,7 @@ function Card({ imgSrc, description = "", button, title, link }) {
               <p className="like">❤️</p>
               {/* <img className="heart" src={heart} alt="heart" /> */}
               <Link
-                className={"signUp px-3 py-2 sm:px-5 sm:py-3 rounded shadow "}
+                className={"button px-3 py-2 sm:px-5 sm:py-3 rounded shadow "}
                 to={link}
               >
                 {button}

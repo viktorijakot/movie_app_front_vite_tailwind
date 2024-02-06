@@ -8,10 +8,10 @@ function HomePage() {
   const title = "Maestro";
   const link = "/sign-up";
   return (
-    <div className="container pt-24 mb-24 ">
-      <section className="flex justify-between items-center home">
+    <div className="container min-h-screen pt-28">
+      <section className="flex justify-between items-center homePage">
         <div className="w-2/4">
-          <h1 className="mt-20">
+          <h1 className="">
             Less stress when choosing a <span>movie.</span>
           </h1>
           <p className=" mt-10 mb-10">
@@ -19,7 +19,7 @@ function HomePage() {
             documentaries.
           </p>
           <NavLink
-            className={"signUp px-3 py-2 sm:px-5 sm:py-3 rounded shadow "}
+            className={"button px-3 py-2 sm:px-5 sm:py-3 rounded shadow "}
             to={"/sign-up"}
           >
             Sign up

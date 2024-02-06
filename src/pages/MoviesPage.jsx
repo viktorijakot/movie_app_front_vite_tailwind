@@ -55,7 +55,7 @@ function MoviesPage() {
         <SmartInput id="movie_title" formik={formik} type="text" />
         <button
           type="submit"
-          className="signUp px-4 py-2 mt-5 rounded focus:outline-none focus:shadow-outline"
+          className="button px-4 py-2 mt-5 rounded focus:outline-none focus:shadow-outline"
         >
           Search
         </button>

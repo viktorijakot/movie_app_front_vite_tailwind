@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="footerContainer">
+    <div className="footer">
       <footer className="py-4">
         <div className="content">
           <p>

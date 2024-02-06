@@ -13,7 +13,7 @@ function Header() {
   }
 
   return (
-    <div className="headerContainer">
+    <div className="header">
       <header className="container flex justify-between items-center">
         {!isUserLoggedIn && (
           <Link
@@ -40,7 +40,7 @@ function Header() {
                 Login
               </NavLink>
               <NavLink
-                className={"signUp px-3 py-2 sm:px-5 sm:py-3 rounded shadow"}
+                className={"button px-3 py-2 sm:px-5 sm:py-3 rounded shadow"}
                 to={"/sign-up"}
               >
                 Sign up
@@ -78,7 +78,7 @@ function Header() {
                 to={"/"}
                 onClick={handleLogout}
                 className={
-                  "signUp mobile px-3 py-2 sm:px-5 sm:py-3 rounded shadow"
+                  "button mobile px-3 py-2 sm:px-5 sm:py-3 rounded shadow"
                 }
               >
                 Logout

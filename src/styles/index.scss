@@ -30,9 +30,8 @@ body {
   background-image: url(/src/assets/facets.png);
 }
 
-.headerContainer {
+.header {
   background-color: #28afb0;
-  // box-shadow: 0 2px 0 0 #1f271b;
   box-shadow: 0 0.5em 1em -0.125em rgba(#1f271b, 0.1);
   position: fixed;
   top: 0;
@@ -44,32 +43,41 @@ body {
   .logo {
     font-family: "Rubik Glitch Pop", system-ui;
   }
-  .signUp {
-    background-color: #f4d35e;
-    color: #1f271b;
-    transition: 0.25s;
-    box-shadow: 0 2px 0 0 #1f271b;
-    font-weight: 600;
-  }
-  .signUp:hover {
-    color: #28afb0;
-    // margin-top: 2px;
-    // margin-bottom: -2px;
-    box-shadow: none;
-  }
-  .signUp:hover li {
-    border-top: 2px solid #28afb0;
-    // margin-top: 2px;
-    // margin-bottom: -2px;
-    box-shadow: none;
-  }
+
   .userSvg {
     border: 1px solid #f4d35e;
     border-radius: 50%;
   }
 }
+
+.button {
+  background-color: #f4d35e;
+  color: #1f271b;
+  transition: 0.25s;
+  box-shadow: 0 2px 0 0 #1f271b;
+  font-weight: 600;
+}
+.button:hover {
+  color: #28afb0;
+  box-shadow: none;
+}
+.button:hover li {
+  border-top: 2px solid #28afb0;
+  box-shadow: none;
+}
+
+.homePage {
+  h1 {
+    font-size: xx-large;
+    font-weight: 900;
+  }
+  h1 span {
+    color: #f4d35e;
+  }
+}
+
 @media (max-width: 425px) {
-  .headerContainer {
+  .header {
     header {
       padding: 0 10px;
     }
@@ -79,36 +87,14 @@ body {
       padding: 5px 10px;
     }
     .login,
-    .signUp {
+    .button {
       font-size: 15px;
       padding: 10px 10px;
     }
   }
 }
-.home {
-  h1 {
-    font-size: xx-large;
-    font-weight: 900;
-  }
-  h1 span {
-    color: #f4d35e;
-  }
-  .signUp {
-    background-color: #f4d35e;
-    color: #1f271b;
-    transition: 0.25s;
-    box-shadow: 0 2px 0 0 #1f271b;
-    font-weight: 600;
-  }
-  .signUp:hover {
-    color: #28afb0;
-    // margin-top: 2px;
-    // margin-bottom: -2px;
-    box-shadow: none;
-  }
-}
 
-.wrapper {
+.cardWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -120,16 +106,7 @@ body {
     background-color: #fff;
     position: relative;
     overflow: hidden;
-    // display: flex;
-    // justify-content: center;
-    // flex-direction: column;
-    // align-items: center;
-
-    // cursor: pointer;
-
-    // z-index: -1;
   }
-
   .maestro {
     padding-top: 20px;
     width: 90%;
@@ -150,22 +127,6 @@ body {
   }
   .like:hover {
     color: #28b0b07f;
-  }
-  // .heart {
-  //   width: 60px;
-  //   height: 60px;
-  //   cursor: pointer;
-  //   transition: 1s;
-  // }
-  // .heart:hover {
-  //   width: 70px;
-  //   height: 70px;
-  // }
-  .signUp:hover {
-    color: #28afb0;
-    // margin-top: 2px;
-    // margin-bottom: -2px;
-    box-shadow: none;
   }
   .top,
   .bottom {
@@ -188,12 +149,6 @@ body {
   .bottom div {
     width: 100%;
   }
-  // button {
-  //   // background-color: goldenrod;
-  //   // padding: 10px;
-  //   // border: none;
-  //   // color: white;
-  // }
 
   .shape {
     background-color: #f4d35e;
@@ -208,16 +163,10 @@ body {
   .top {
     position: absolute;
     z-index: 1;
-    // display: flex;
-    // justify-content: center;
-    // flex-direction: column;
-    // align-items: center;
   }
   .top h1 {
     font-size: x-large;
     font-weight: 900;
-    // align-self: center;
-    // justify-self: center;
     text-align: center;
   }
   .card:hover .bottom {
@@ -240,7 +189,7 @@ body {
 }
 
 @media (max-width: 425px) {
-  .home,
+  .homePage,
   .movieCont {
     flex-direction: column;
     .w-2\/4 {
@@ -256,9 +205,7 @@ body {
         margin-top: -1.5rem;
       }
     }
-    .card {
-      overflow: scroll;
-    }
+
     .card:hover h1 {
       margin-top: 1.5rem;
       font-size: large;
@@ -284,10 +231,10 @@ body {
     border-bottom: 3px solid #62c0a2;
     color: #1f271b;
   }
-  .signUp {
+  .button {
     background-color: #28afb0;
   }
-  .signUp:hover {
+  .button:hover {
     color: #f4d35e;
   }
 }
@@ -297,27 +244,18 @@ body {
     width: 80%;
   }
 }
-// .input {
-//   width: 100%;
-//   outline: none;
-//   border: 0;
-//   font-size: 18px;
-//   border-bottom: 1px solid lightgray;
-//   margin-bottom: 20px;
-// }
-.footerContainer {
+
+.footer {
   background-color: #28afb0;
   box-shadow: 0 -0.125em 1em -0.125em rgba(#1f271b, 0.1);
   width: 100%;
-  z-index: 2;
-  left: 0;
+  position: relative;
   bottom: 0;
-  // position: relative;
-
   footer {
     margin: 0 auto;
     text-align: center;
     font-size: smaller;
+
     .link {
       font-weight: 700;
     }
@@ -326,13 +264,14 @@ body {
     }
   }
 }
+
 .header-flyout-menu {
   display: none;
   position: relative;
 }
 
 .menu-toggle-button {
-  background-color: #333;
+  background-color: #f4d35e;
   color: #fff;
   border: none;
   padding: 10px 10px;
@@ -384,7 +323,7 @@ body {
     font-size: 15px;
     padding: 10px 10px;
   }
-  .footerContainer {
+  .footer {
     footer {
       font-size: xx-small;
     }
@@ -392,17 +331,4 @@ body {
 }
 .movieCont {
   min-height: 100vh;
-  .signUp {
-    background-color: #f4d35e;
-    color: #1f271b;
-    transition: 0.25s;
-    box-shadow: 0 2px 0 0 #1f271b;
-    font-weight: 600;
-  }
-  .signUp:hover {
-    color: #28afb0;
-    // margin-top: 2px;
-    // margin-bottom: -2px;
-    box-shadow: none;
-  }
 }

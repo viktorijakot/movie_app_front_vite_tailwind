@@ -69,7 +69,7 @@ function LoginPage() {
           />
         </div>
         <button
-          className="signUp py-2 px-4 mt-8 rounded focus:outline-none focus:shadow-outline"
+          className="button py-2 px-4 mt-8 rounded focus:outline-none focus:shadow-outline"
           type="submit"
         >
           Log in
