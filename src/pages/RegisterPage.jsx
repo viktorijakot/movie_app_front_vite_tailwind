@@ -29,7 +29,7 @@ function RegisterPage() {
       sendAxiosData({
         email: values.email,
         password: values.password,
-        userName: values.userName,
+        userName: values.user_name,
       });
     },
   });
