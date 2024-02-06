@@ -134,6 +134,8 @@ body {
   }
   .buttons {
     margin-top: -2.5rem;
+    position: relative;
+    bottom: 0;
   }
   .bottom {
     padding: 0 15px;
@@ -170,7 +172,7 @@ body {
     text-align: center;
   }
   .card:hover .bottom {
-    top: 50%;
+    top: 55%;
   }
   .card:hover .top h1 {
     display: none;
@@ -181,6 +183,7 @@ body {
   }
   .card:hover .description {
     margin-top: -5rem;
+    font-size: medium;
   }
   .card:hover img {
     width: 40%;
@@ -205,13 +208,11 @@ body {
         margin-top: -1.5rem;
       }
     }
-
-    .card:hover h1 {
-      margin-top: 1.5rem;
-      font-size: large;
+    .card:hover .bottom {
+      top: 30%;
     }
     .card:hover .description {
-      margin-top: 0;
+      margin-top: 4rem;
       margin-bottom: 3rem;
       font-size: smaller;
     }

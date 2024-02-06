@@ -9,7 +9,7 @@ function Card({ imgSrc, description = "", button, title, link }) {
         <div className="shape"></div>
         <div className="top">
           <img className="maestro" src={imgSrc} alt="meastro" />
-          <h1 className="mt-5 max-[425px]:text-wrap">{title}</h1>
+          <h1 className="mt-5 ">{title}</h1>
         </div>
         <div className="bottom">
           <div>
