@@ -10,7 +10,9 @@ import Card from "../components/UI/Card";
 function MoviesPage() {
   const [movies, setMovies] = useState(null);
   const [plot, setPlot] = useState(null);
+
   // const navigate = useNavigate();
+  console.log("movies ===", movies);
   const formik = useFormik({
     initialValues: {
       movie_title: "",
@@ -23,6 +25,8 @@ function MoviesPage() {
       getAxiosData(values.movie_title);
     },
   });
+  console.log("formik values ===", formik.values);
+
   const getAxiosData = (data) => {
     axios
       .get(`https://www.omdbapi.com/?apikey=96949423&s=${data}`)

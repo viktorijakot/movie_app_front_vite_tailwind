@@ -240,7 +240,7 @@ body {
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 768px) {
   .modal_box {
     width: 80%;
   }
@@ -332,4 +332,18 @@ body {
 }
 .movieCont {
   min-height: 100vh;
+}
+.movieSingle {
+  .like {
+    color: #1f271b;
+    font-size: 70px;
+    cursor: pointer;
+    transition: 1s;
+    .number {
+      font-size: 30px;
+    }
+  }
+  .like:hover {
+    color: #28afb0;
+  }
 }
