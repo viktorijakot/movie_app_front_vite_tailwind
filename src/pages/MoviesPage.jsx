@@ -77,6 +77,7 @@ function MoviesPage() {
                   }
                   description={plot}
                   button={"Read more"}
+                  link={`/movie-list/${movie.imdbID}`}
                 />
                 {/* <div
                   className="relative"
