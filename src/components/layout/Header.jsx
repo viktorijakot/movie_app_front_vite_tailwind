@@ -54,7 +54,7 @@ function Header() {
                 className={"login mobile px-4 py-2 me-2 "}
                 to={"/movie-list"}
               >
-                Movies
+                Movie search
               </NavLink>
               <NavLink
                 className={"login mobile px-4 py-2 me-2 "}
@@ -72,7 +72,7 @@ function Header() {
                 className={"login mobile px-4 py-2 me-2 "}
                 to={"/movie-list"}
               >
-                Movie search
+                My movies
               </NavLink>
               <Link
                 to={"/"}

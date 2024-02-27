@@ -31,7 +31,7 @@ function FlyOutMenu() {
           <ul>
             <li>
               <NavLink onClick={() => setIsMenuOpen(false)} to={"/movie-list"}>
-                Movies
+                Movie search
               </NavLink>
             </li>
             <li>
@@ -46,7 +46,7 @@ function FlyOutMenu() {
             </li>
             <li>
               <NavLink onClick={() => setIsMenuOpen(false)} to={"/movie-list"}>
-                Movie search
+                My movies
               </NavLink>
             </li>
             <li>

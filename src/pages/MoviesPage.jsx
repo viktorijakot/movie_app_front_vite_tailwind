@@ -82,33 +82,8 @@ function MoviesPage() {
                   description={plot}
                   button={"Read more"}
                   link={`/movie-list/${movie.imdbID}`}
+                  movieId={movie.imdbID}
                 />
-                {/* <div
-                  className="relative"
-                  // onmouseenter="showInfo(event, '${data.imdbID}')"
-                  // onmouseleave="removeInfo(event)"
-                >
-                  <div className="mb-2">
-                    {movie.Poster === "N/A" ? (
-                      <div className="bg-secondary-subtle no-pic">No image</div>
-                    ) : (
-                      <img
-                        src={movie.Poster}
-                        style={{
-                          width: "100%",
-                          height: "400px",
-                          objectFit: "cover",
-                        }}
-                      />
-                    )}
-                  </div>
-                  <h4>{movie.Title}</h4>
-                  <div className="d-flex justify-content-between">
-                    <span>{movie.Type}</span>
-                    <br />
-                    <span>{movie.Year}</span>
-                  </div>
-                </div> */}
               </div>
             );
           })}
