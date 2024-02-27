@@ -8,6 +8,7 @@ import Footer from "./components/layout/Footer";
 import MoviesPage from "./pages/MoviesPage";
 import UserPrivateRoute from "./privateRoutes/UserPrivateRoute";
 import SingleMoviePage from "./pages/SingleMoviePage";
+import FriendsPage from "./pages/FriendsPage";
 
 export default function App() {
   return (
@@ -33,6 +34,14 @@ export default function App() {
           element={
             <UserPrivateRoute>
               <SingleMoviePage />
+            </UserPrivateRoute>
+          }
+        />
+        <Route
+          path="/friends-list"
+          element={
+            <UserPrivateRoute>
+              <FriendsPage />
             </UserPrivateRoute>
           }
         />

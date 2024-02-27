@@ -8,8 +8,8 @@ function HomePage() {
   const title = "Maestro";
   const link = "/sign-up";
   return (
-    <div className="container min-h-screen pt-28">
-      <section className="flex justify-between items-center homePage">
+    <div className="container min-h-screen relative flex justify-center items-center">
+      <section className="flex justify-between items-center homePage ">
         <div className="w-2/4">
           <h1 className="">
             Less stress when choosing a <span>movie.</span>

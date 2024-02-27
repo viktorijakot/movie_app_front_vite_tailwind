@@ -8,7 +8,7 @@ function SmartInput({ id, formik, type = "text", readOnly = false }) {
       onBlur={formik.handleBlur}
       value={formik.values[id]}
       placeholder=""
-      className="w-full px-3 py-2 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 "
+      className="w-full px-3 py-2 border border-gray-300 rounded shadow-sm focus:outline-none  focus:ring-teal-600 focus:border-teal-600"
       id={id}
       rows="3"
     ></textarea>

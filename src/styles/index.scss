@@ -192,6 +192,9 @@ body {
 }
 
 @media (max-width: 425px) {
+  .homePage {
+    margin-top: 30%;
+  }
   .homePage,
   .movieCont {
     flex-direction: column;
@@ -242,7 +245,9 @@ body {
 
 @media (max-width: 768px) {
   .modal_box {
-    width: 80%;
+    width: 90%;
+    margin-top: 30%;
+    margin-bottom: 5%;
   }
 }
 
@@ -250,8 +255,9 @@ body {
   background-color: #28afb0;
   box-shadow: 0 -0.125em 1em -0.125em rgba(#1f271b, 0.1);
   width: 100%;
-  position: relative;
+  // position: absolute;
   bottom: 0;
+  z-index: 2;
   footer {
     margin: 0 auto;
     text-align: center;

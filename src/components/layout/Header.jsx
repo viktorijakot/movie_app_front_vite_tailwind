@@ -64,7 +64,7 @@ function Header() {
               </NavLink>
               <NavLink
                 className={"login mobile px-4 py-2 me-2 "}
-                to={"/movie-list"}
+                to={"/friends-list"}
               >
                 Friends
               </NavLink>

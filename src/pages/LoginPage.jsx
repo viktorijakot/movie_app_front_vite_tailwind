@@ -47,34 +47,36 @@ function LoginPage() {
   }
 
   return (
-    <div className="container mx-auto mt-32 mb-24 lg:w-1/2 xl:w-1/2  modal_box px-4 md:px-16">
-      <h1 className="text-3xl mb-10">
-        Log <span className="in">in</span>
-      </h1>
-      <form onSubmit={formik.handleSubmit} className="mt-4 mb-2" noValidate>
-        <div className="mb-4">
-          <SmartInput
-            id="email"
-            formik={formik}
-            type="email"
-            placeholder="Enter your email"
-          />
-        </div>
-        <div className="mb-4">
-          <SmartInput
-            id="password"
-            formik={formik}
-            type="password"
-            placeholder="Enter your password"
-          />
-        </div>
-        <button
-          className="button py-2 px-4 mt-8 rounded focus:outline-none focus:shadow-outline"
-          type="submit"
-        >
-          Log in
-        </button>
-      </form>
+    <div className="container min-h-screen flex justify-center items-center">
+      <div className="lg:w-1/2 xl:w-1/2 modal_box px-4 md:px-16">
+        <h1 className="text-3xl mb-10">
+          Log <span className="in">in</span>
+        </h1>
+        <form onSubmit={formik.handleSubmit} className="mt-4 mb-2" noValidate>
+          <div className="mb-4">
+            <SmartInput
+              id="email"
+              formik={formik}
+              type="email"
+              placeholder="Enter your email"
+            />
+          </div>
+          <div className="mb-4">
+            <SmartInput
+              id="password"
+              formik={formik}
+              type="password"
+              placeholder="Enter your password"
+            />
+          </div>
+          <button
+            className="button py-2 px-4 mt-8 rounded focus:outline-none focus:shadow-outline"
+            type="submit"
+          >
+            Log in
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
