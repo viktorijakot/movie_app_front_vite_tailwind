@@ -116,18 +116,15 @@ body {
     object-fit: cover;
     height: 60%;
   }
-  .like {
-    color: #28afb0;
-    font-size: 70px;
-    cursor: pointer;
-    transition: 1s;
-    .number {
-      font-size: 30px;
-    }
-  }
-  .like:hover {
-    color: #28b0b07f;
-  }
+  // .like {
+  //   color: #28afb0;
+  //   font-size: 70px;
+  //   cursor: pointer;
+  //   transition: 1s;
+  // }
+  // .like:hover {
+  //   color: #28b0b07f;
+  // }
   .top,
   .bottom {
     text-align: center;
@@ -350,17 +347,14 @@ body {
 .movieCont {
   min-height: 100vh;
 }
-.movieSingle {
-  .like {
-    color: #1f271b;
-    font-size: 70px;
-    cursor: pointer;
-    transition: 1s;
-    .number {
-      font-size: 30px;
-    }
-  }
-  .like:hover {
-    color: #28afb0;
-  }
-}
+// .movieSingle {
+//   .like {
+//     // color: #1f271b;
+//     // font-size: 70px;
+//     // cursor: pointer;
+//     // transition: 1s;
+//   }
+//   .like:hover {
+//     color: #28afb0;
+//   }
+// }

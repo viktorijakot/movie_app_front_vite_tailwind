@@ -9,6 +9,7 @@ function SingleMoviePage() {
   const [movie, setMovie] = useState();
   const { id } = useParams();
   const { token } = useAuthContext();
+  const [like, setLike] = useState(false);
 
   useEffect(() => {
     axios
@@ -29,7 +30,7 @@ function SingleMoviePage() {
       title,
       imgUrl,
     };
-
+    setLike(true);
     axios
       .post(`${URL_BASE}myMoviesList`, data, {
         headers: { Authorization: `Bearer ${token}` },
@@ -42,6 +43,33 @@ function SingleMoviePage() {
       .catch((error) => {
         if (error.response.data.error === "Email is already taken") {
           return toast.success("You already liked this movie", {
+            style: {
+              border: "1px solid #1f271b",
+              padding: "16px",
+              color: "#1f271b",
+            },
+            iconTheme: {
+              primary: "#1f271b",
+              secondary: "#62c0a2",
+            },
+          });
+        }
+        toast.error(error.response.data.error);
+      });
+  };
+
+  const handleUnlike = (title) => {
+    axios
+      .delete(`${URL_BASE}myMoviesList/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        toast.success(`You just removed ${title} movie from your list!`);
+        setLike(false);
+      })
+      .catch((error) => {
+        if (error.response.data.error === "Email is already taken") {
+          return toast.success("You already removed this movie", {
             style: {
               border: "1px solid #1f271b",
               padding: "16px",
@@ -119,11 +147,20 @@ function SingleMoviePage() {
         )}
         <div className="flex justify-center gap-4 items-center buttons mt-3">
           <p
-            className="like"
-            onClick={() => handleLike(movie.Plot, movie.Title, movie.Poster)}
+            className={
+              !like
+                ? "like text-[#1f271b] text-7xl cursor-pointer duration-1000 hover:text-[#28afb0]"
+                : "like text-[#28afb0] text-7xl cursor-pointer duration-1000 hover:text-[#1f271b]"
+            }
+            onClick={() =>
+              !like
+                ? handleLike(movie.Plot, movie.Title, movie.Poster)
+                : handleUnlike(movie.Title)
+            }
           >
             ❤️
           </p>
+
           <Link
             to={"/movie-list"}
             className="button px-3 py-2 sm:px-5 sm:py-3 rounded shadow mt-2"
