@@ -1,13 +1,11 @@
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import SmartInput from "../components/UI/SmartInput";
 import useGetApiData from "../hooks/useGetApiData";
 import { URL_BASE } from "../components/helper";
 import { useMemo, useState } from "react";
 import { useAuthContext } from "../store/AuthCtxProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { Navigate } from "react-router-dom";
+import { baseBackendUrl } from "../components/helper";
+import userSvg from "./../assets/userSvg.svg";
 
 function FriendsPage() {
   const [usersList, setUsersList] = useGetApiData(`${URL_BASE}users`);
@@ -91,10 +89,25 @@ function FriendsPage() {
         <ul className="divide-y  divide-[#f4d35e]">
           {filteredUsers?.map((user) => (
             <li key={user.id} className="flex justify-between items-center ">
-              <div>
-                <p>
-                  {user.userName} <span>{user.email}</span>
-                </p>
+              <div className="flex items-center gap-5">
+                {user.img_url ? (
+                  <img
+                    className="border border-white  w-10 h-10 rounded-full"
+                    src={
+                      baseBackendUrl +
+                      (user.img_url !== "" ? user.img_url : "placeholder.webp")
+                    }
+                    alt="profile picture"
+                  />
+                ) : (
+                  <img className="userSvg py-2 " src={userSvg} alt="user" />
+                )}
+                <div>
+                  <p>
+                    {user.userName} <span></span>
+                  </p>
+                  <p className="text-xs">{user.email}</p>
+                </div>
               </div>
               <div>
                 {user.id ===
@@ -137,9 +150,25 @@ function FriendsPage() {
                 key={followObj.id}
                 className="flex justify-between items-center border border-white rounded px-2 mt-2 shadow-md"
               >
-                <div>
-                  <p>{followObj.userName}</p>
-                  <p>{followObj.email}</p>
+                <div className="flex items-center gap-5">
+                  {followObj.img_url ? (
+                    <img
+                      className="border border-white  w-10 h-10 rounded-full"
+                      src={
+                        baseBackendUrl +
+                        (followObj.img_url !== ""
+                          ? followObj.img_url
+                          : "placeholder.webp")
+                      }
+                      alt="profile picture"
+                    />
+                  ) : (
+                    <img className="userSvg py-2 " src={userSvg} alt="user" />
+                  )}
+                  <div>
+                    <p>{followObj.userName}</p>
+                    <p className="text-xs">{followObj.email}</p>
+                  </div>
                 </div>
                 <div>
                   <button
@@ -172,9 +201,25 @@ function FriendsPage() {
                 key={followerObj.id}
                 className="flex justify-between items-center border border-white rounded px-2 mt-2 shadow-md"
               >
-                <div>
-                  <p>{followerObj.userName}</p>
-                  <p>{followerObj.email}</p>
+                <div className="flex items-center gap-5">
+                  {followerObj.img_url ? (
+                    <img
+                      className="border border-white  w-10 h-10 rounded-full"
+                      src={
+                        baseBackendUrl +
+                        (followerObj.img_url !== ""
+                          ? followerObj.img_url
+                          : "placeholder.webp")
+                      }
+                      alt="profile picture"
+                    />
+                  ) : (
+                    <img className="userSvg py-2 " src={userSvg} alt="user" />
+                  )}
+                  <div>
+                    <p>{followerObj.userName}</p>
+                    <p className="text-xs">{followerObj.email}</p>
+                  </div>
                 </div>
                 <div>
                   {followerObj.id ===
