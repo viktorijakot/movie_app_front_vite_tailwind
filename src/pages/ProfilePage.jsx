@@ -81,14 +81,14 @@ function ProfilePage() {
     setItemImagePreview("");
   };
   return (
-    <div className="container profile min-h-screen flex justify-center items-center">
-      <div className="w-full modal_box px-4 lg:px-16 ">
+    <div className="container min-h-screen flex justify-center items-center">
+      <div className="w-full modal_box mt-28 mb-20 px-4 lg:px-16 ">
         <h1 className="text-center mb-5 text-2xl font-bold">Edit profile</h1>
         <div className="flex justify-around items-center">
           <div>
             {imgUrl ? (
               <img
-                className="border-4 border-[#1f271b]  w-80 h-80 rounded-full"
+                className="border-4 border-white  w-80 h-80 rounded-full"
                 src={
                   baseBackendUrl + (imgUrl !== "" ? imgUrl : "placeholder.webp")
                 }
@@ -96,7 +96,7 @@ function ProfilePage() {
               />
             ) : (
               <img
-                className="border-4 border-[#1f271b] py-2 w-80 h-80 rounded-full"
+                className="border-4 border-white py-2 w-80 h-80 rounded-full"
                 src={userSvg}
                 alt="user"
               />
@@ -123,30 +123,33 @@ function ProfilePage() {
           </div> */}
             <div className="mt-5">
               {formik.values["file"] && (
-                <div className="p-5 border mb-5">
-                  {console.log(
-                    'formik.values["img_url"]  ===',
-                    formik.values["file"]
-                  )}
-                  {console.log("itemImagePreview ===", itemImagePreview)}
-                  <p className="font-bold">Image Preview</p>
-                  <img
-                    src={
-                      formik.values["img_url"]
-                        ? baseBackendUrl + formik.values["img_url"]
-                        : itemImagePreview
-                    }
-                    alt="Profile Preview"
-                    style={{ width: "200px" }}
-                  />
-                  <button
-                    type="button"
-                    onClick={handleDeleteImage}
-                    className="bg-red-500 hover:bg-red-400 text-white font-bold ml-2 py-2 px-4 rounded"
-                  >
-                    Delete Image
-                  </button>
-                </div>
+                <>
+                  <p>Image Preview</p>
+                  <div className="p-5 border rounded mb-5 flex flex-col justify-center items-center">
+                    {console.log(
+                      'formik.values["img_url"]  ===',
+                      formik.values["file"]
+                    )}
+                    {console.log("itemImagePreview ===", itemImagePreview)}
+
+                    <img
+                      src={
+                        formik.values["img_url"]
+                          ? baseBackendUrl + formik.values["img_url"]
+                          : itemImagePreview
+                      }
+                      alt="Profile Preview"
+                      style={{ width: "200px" }}
+                    />
+                    <button
+                      type="button"
+                      onClick={handleDeleteImage}
+                      className="button profile text-white mt-2 py-2 px-4 rounded"
+                    >
+                      Delete Image
+                    </button>
+                  </div>
+                </>
               )}
               <label htmlFor="file" className="w-full mt-5">
                 <span className="block">File upload</span>
@@ -154,7 +157,7 @@ function ProfilePage() {
                   name="file"
                   type="file"
                   onChange={handleFileChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                  className="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-[#62c0a2] focus:border-[#62c0a2]"
                   accept="image/*"
                   id="file"
                 />

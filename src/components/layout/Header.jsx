@@ -3,9 +3,10 @@ import { useAuthContext } from "../../store/AuthCtxProvider";
 import LOGO from "../../assets/logo.svg";
 import userSvg from "../../assets/userSvg.svg";
 import FlyOutMenu from "../UI/FlyOutMenu";
+import { baseBackendUrl } from "../helper";
 
 function Header() {
-  const { isUserLoggedIn, logout, userName } = useAuthContext();
+  const { isUserLoggedIn, logout, userName, imgUrl } = useAuthContext();
   const navigate = useNavigate();
   function handleLogout() {
     logout();
@@ -29,7 +30,17 @@ function Header() {
             className={"userLogo py-4 flex justify-between items-center gap-1"}
             to={"/profile"}
           >
-            <img className="userSvg py-2 " src={userSvg} alt="user" />{" "}
+            {imgUrl ? (
+              <img
+                className="border border-white  w-10 h-10 rounded-full"
+                src={
+                  baseBackendUrl + (imgUrl !== "" ? imgUrl : "placeholder.webp")
+                }
+                alt="profile picture"
+              />
+            ) : (
+              <img className="userSvg py-2 " src={userSvg} alt="user" />
+            )}{" "}
             <p className="text-sm">{userName}</p>
           </NavLink>
         )}

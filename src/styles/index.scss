@@ -238,9 +238,20 @@ body {
   .button {
     background-color: #28afb0;
   }
+  .profile {
+    background-color: #1f271b;
+    color: #28afb0;
+    box-shadow: 0 2px 0 0 #28afb0;
+  }
+  .profile:hover {
+    box-shadow: none;
+  }
   .button:hover {
     color: #f4d35e;
   }
+}
+.profile {
+  background-color: #1f271b;
 }
 
 @media (max-width: 768px) {
