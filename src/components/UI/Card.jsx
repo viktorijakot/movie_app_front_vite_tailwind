@@ -7,7 +7,7 @@ import { URL_BASE } from "../helper";
 import toast from "react-hot-toast";
 
 function Card({ imgSrc, description = "", button, title, link, movieId }) {
-  const { token } = useAuthContext();
+  const { token, isUserLoggedIn } = useAuthContext();
   const handleLike = (imgSrc, description, title, movieId) => {
     const data = {
       movieId,
@@ -52,14 +52,19 @@ function Card({ imgSrc, description = "", button, title, link, movieId }) {
         <div className="bottom">
           <div>
             <p className="mb-5 description">{description}</p>
-            <div className="flex justify-evenly items-center buttons">
+            <div
+              className={
+                isUserLoggedIn
+                  ? "flex justify-evenly items-center buttons"
+                  : "flex justify-center items-center"
+              }
+            >
               <p
-                className="like"
+                className={isUserLoggedIn ? "like pb-2" : "hidden"}
                 onClick={() => handleLike(imgSrc, description, title, movieId)}
               >
                 ❤️
               </p>
-              {/* <img className="heart" src={heart} alt="heart" /> */}
               <Link
                 className={"button px-3 py-2 sm:px-5 sm:py-3 rounded shadow "}
                 to={link}

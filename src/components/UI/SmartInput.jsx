@@ -1,5 +1,11 @@
 import PropTypes from "prop-types";
-function SmartInput({ id, formik, type = "text", readOnly = false }) {
+function SmartInput({
+  id,
+  formik,
+  type = "text",
+  readOnly = false,
+  placeholder = "",
+}) {
   // id = title
 
   const areaInput = (
@@ -29,7 +35,7 @@ function SmartInput({ id, formik, type = "text", readOnly = false }) {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values[id]}
-            // placeholder={placeholder}
+            placeholder={placeholder}
             type={type}
             className="input w-full px-3 py-2 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-teal-600 focus:border-teal-600 "
             id={id}

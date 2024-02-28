@@ -5,6 +5,7 @@ const AuthContext = createContext({
   email: "",
   userName: "",
   userId: "",
+  imgUrl: "",
   login(email, token) {},
   logout() {},
   isUserLoggedIn: false,
@@ -37,8 +38,9 @@ export default function AuthCtxProvider({ children }) {
     email: tokenData?.email || "",
     userName: tokenData?.userName || "",
     userId: tokenData?.sub || "",
+    imgUrl: tokenData?.imgUrl || "",
   });
-
+  console.log("tokenData ===", tokenData);
   const login = (email, token) => {
     const tokenData = jwtDecode(token);
     setAuthState({
@@ -46,6 +48,7 @@ export default function AuthCtxProvider({ children }) {
       email,
       userName: tokenData.userName,
       userId: tokenData.sub,
+      imgUrl: tokenData.imgUrl,
     });
     localStorage.setItem("token", token);
   };
@@ -56,6 +59,7 @@ export default function AuthCtxProvider({ children }) {
       email: "",
       userName: "",
       userId: "",
+      imgUrl: "",
     });
     localStorage.removeItem("token");
   };
@@ -77,6 +81,7 @@ export default function AuthCtxProvider({ children }) {
     email: authState.email,
     userName: authState.userName,
     userId: authState.userId,
+    imgUrl: authState.imgUrl,
     login,
     logout,
   };

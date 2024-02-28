@@ -27,7 +27,7 @@ function Header() {
         {isUserLoggedIn && (
           <NavLink
             className={"userLogo py-4 flex justify-between items-center gap-1"}
-            to={"/movie-list"}
+            to={"/profile"}
           >
             <img className="userSvg py-2 " src={userSvg} alt="user" />{" "}
             <p className="text-sm">{userName}</p>

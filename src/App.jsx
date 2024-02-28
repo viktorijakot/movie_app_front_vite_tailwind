@@ -9,6 +9,7 @@ import MoviesPage from "./pages/MoviesPage";
 import UserPrivateRoute from "./privateRoutes/UserPrivateRoute";
 import SingleMoviePage from "./pages/SingleMoviePage";
 import FriendsPage from "./pages/FriendsPage";
+import ProfilePage from "./pages/ProfilePage";
 
 export default function App() {
   return (
@@ -21,6 +22,14 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/sign-up" element={<RegisterPage />} />
+        <Route
+          path="/profile"
+          element={
+            <UserPrivateRoute>
+              <ProfilePage />
+            </UserPrivateRoute>
+          }
+        />
         <Route
           path="/movie-list"
           element={
