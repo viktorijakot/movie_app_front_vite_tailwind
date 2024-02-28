@@ -54,39 +54,41 @@ function MoviesPage() {
       });
   };
   return (
-    <div className="container movieCont mx-auto mt-32 mb-24 ">
-      <form className="" onSubmit={formik.handleSubmit}>
-        <SmartInput id="movie_title" formik={formik} type="text" />
-        <button
-          type="submit"
-          className="button px-4 py-2 mt-5 rounded focus:outline-none focus:shadow-outline"
-        >
-          Search
-        </button>
-      </form>
-      <div className="result grid grid-cols-4 gap-4 mt-5 max-[425px]:grid-cols-1 max-[768px]:grid-cols-2 max-[1024px]:grid-cols-3">
-        {movies &&
-          movies.map((movie) => {
-            return (
-              <div
-                key={movie.imdbID}
-                onMouseEnter={() => handleMove(movie.imdbID)}
-              >
-                <Card
-                  title={movie.Title}
-                  imgSrc={
-                    movie.Poster === "N/A"
-                      ? "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png?20200912122019"
-                      : movie.Poster
-                  }
-                  description={plot}
-                  button={"Read more"}
-                  link={`/movie-list/${movie.imdbID}`}
-                  movieId={movie.imdbID}
-                />
-              </div>
-            );
-          })}
+    <div className="container min-h-screen flex justify-center">
+      <div className="movieCont w-full mt-28 mb-10">
+        <form onSubmit={formik.handleSubmit}>
+          <SmartInput id="movie_title" formik={formik} type="text" />
+          <button
+            type="submit"
+            className="button px-4 py-2 mt-5 rounded focus:outline-none focus:shadow-outline"
+          >
+            Search
+          </button>
+        </form>
+        <div className="result grid grid-cols-4 gap-4 mt-5 max-[425px]:grid-cols-1 max-[768px]:grid-cols-2 max-[1024px]:grid-cols-3">
+          {movies &&
+            movies.map((movie) => {
+              return (
+                <div
+                  key={movie.imdbID}
+                  onMouseEnter={() => handleMove(movie.imdbID)}
+                >
+                  <Card
+                    title={movie.Title}
+                    imgSrc={
+                      movie.Poster === "N/A"
+                        ? "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png?20200912122019"
+                        : movie.Poster
+                    }
+                    description={plot}
+                    button={"Read more"}
+                    link={`/movie-list/${movie.imdbID}`}
+                    movieId={movie.imdbID}
+                  />
+                </div>
+              );
+            })}
+        </div>
       </div>
     </div>
   );

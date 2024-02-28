@@ -92,7 +92,7 @@ function FriendsPage() {
               <div className="flex items-center gap-5">
                 {user.img_url ? (
                   <img
-                    className="border border-white  w-10 h-10 rounded-full"
+                    className="border border-white  w-10 h-10 object-cover rounded-full"
                     src={
                       baseBackendUrl +
                       (user.img_url !== "" ? user.img_url : "placeholder.webp")
@@ -153,7 +153,7 @@ function FriendsPage() {
                 <div className="flex items-center gap-5">
                   {followObj.img_url ? (
                     <img
-                      className="border border-white  w-10 h-10 rounded-full"
+                      className="border border-white object-cover  w-10 h-10 rounded-full"
                       src={
                         baseBackendUrl +
                         (followObj.img_url !== ""
@@ -204,7 +204,7 @@ function FriendsPage() {
                 <div className="flex items-center gap-5">
                   {followerObj.img_url ? (
                     <img
-                      className="border border-white  w-10 h-10 rounded-full"
+                      className="border border-white object-cover  w-10 h-10 rounded-full"
                       src={
                         baseBackendUrl +
                         (followerObj.img_url !== ""

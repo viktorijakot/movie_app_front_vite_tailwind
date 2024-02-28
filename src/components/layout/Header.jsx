@@ -32,7 +32,7 @@ function Header() {
           >
             {imgUrl ? (
               <img
-                className="border border-white  w-10 h-10 rounded-full"
+                className="border border-white  w-10 h-10 object-cover rounded-full"
                 src={
                   baseBackendUrl + (imgUrl !== "" ? imgUrl : "placeholder.webp")
                 }

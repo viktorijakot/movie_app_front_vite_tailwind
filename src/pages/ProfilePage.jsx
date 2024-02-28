@@ -83,12 +83,14 @@ function ProfilePage() {
   return (
     <div className="container min-h-screen flex justify-center items-center">
       <div className="w-full modal_box mt-28 mb-20 px-4 lg:px-16 ">
-        <h1 className="text-center mb-5 text-2xl font-bold">Edit profile</h1>
-        <div className="flex justify-around items-center">
-          <div>
+        <h1 className="text-center mb-5 text-2xl font-bold max-[425px]:text-xl">
+          Edit profile
+        </h1>
+        <div className="flex justify-evenly items-center max-[754px]:flex-col">
+          <div className="">
             {imgUrl ? (
               <img
-                className="border-4 border-white  w-80 h-80 rounded-full"
+                className="border-4 border-white w-80 h-80 mr-2 object-cover rounded-full  max-[754px]:w-48 max-[754px]:h-48 "
                 src={
                   baseBackendUrl + (imgUrl !== "" ? imgUrl : "placeholder.webp")
                 }
@@ -96,7 +98,7 @@ function ProfilePage() {
               />
             ) : (
               <img
-                className="border-4 border-white py-2 w-80 h-80 rounded-full"
+                className="border-4 border-white py-2 w-80 h-80 mr-2 rounded-full max-[754px]:w-48 max-[754px]:h-48"
                 src={userSvg}
                 alt="user"
               />
@@ -157,7 +159,7 @@ function ProfilePage() {
                   name="file"
                   type="file"
                   onChange={handleFileChange}
-                  className="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-[#62c0a2] focus:border-[#62c0a2]"
+                  className="w-full text-wrap px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-[#62c0a2] focus:border-[#62c0a2]"
                   accept="image/*"
                   id="file"
                 />
