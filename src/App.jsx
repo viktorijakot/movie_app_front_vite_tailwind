@@ -10,6 +10,7 @@ import UserPrivateRoute from "./privateRoutes/UserPrivateRoute";
 import SingleMoviePage from "./pages/SingleMoviePage";
 import FriendsPage from "./pages/FriendsPage";
 import ProfilePage from "./pages/ProfilePage";
+import UserMovieListPage from "./pages/UserMovieListPage";
 
 export default function App() {
   return (
@@ -51,6 +52,14 @@ export default function App() {
           element={
             <UserPrivateRoute>
               <FriendsPage />
+            </UserPrivateRoute>
+          }
+        />
+        <Route
+          path="/my-movie-list"
+          element={
+            <UserPrivateRoute>
+              <UserMovieListPage />
             </UserPrivateRoute>
           }
         />

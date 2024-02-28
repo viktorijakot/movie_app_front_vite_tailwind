@@ -45,7 +45,10 @@ function FlyOutMenu() {
               </NavLink>
             </li>
             <li>
-              <NavLink onClick={() => setIsMenuOpen(false)} to={"/movie-list"}>
+              <NavLink
+                onClick={() => setIsMenuOpen(false)}
+                to={"/my-movie-list"}
+              >
                 My movies
               </NavLink>
             </li>
