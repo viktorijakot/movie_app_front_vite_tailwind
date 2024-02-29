@@ -12,6 +12,7 @@ function Header() {
     logout();
     navigate("/home");
   }
+  console.log("imgUrl ===", imgUrl);
 
   return (
     <div className="header">

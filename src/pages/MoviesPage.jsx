@@ -72,11 +72,13 @@ function MoviesPage() {
             Search
           </button>
         </form>
-        <Pagination
-          page={page}
-          totalResults={totalResults}
-          handlePages={handlePages}
-        />
+        {movies && (
+          <Pagination
+            page={page}
+            totalResults={totalResults}
+            handlePages={handlePages}
+          />
+        )}
         <div className="result grid grid-cols-4 gap-4 mt-5 max-[425px]:grid-cols-1 max-[768px]:grid-cols-2 max-[1024px]:grid-cols-3">
           {movies &&
             movies.map((movie) => {
@@ -101,11 +103,13 @@ function MoviesPage() {
               );
             })}
         </div>
-        <Pagination
-          page={page}
-          totalResults={totalResults}
-          handlePages={handlePages}
-        />
+        {movies && (
+          <Pagination
+            page={page}
+            totalResults={totalResults}
+            handlePages={handlePages}
+          />
+        )}
       </div>
     </div>
   );

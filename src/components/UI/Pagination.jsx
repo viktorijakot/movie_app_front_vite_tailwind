@@ -11,10 +11,10 @@ const Pagination = ({ page, totalResults, handlePages }) => {
       {page > 1 ? (
         <ChevronLeftIcon
           onClick={() => handlePages(page - 1)}
-          className="mx-1 px-3 py-1 h-10 rounded-full bg-[#f4d35e] text-[#1f271b]"
+          className="mx-1 px-3 py-1 h-10 rounded-full bg-[#f4d35e] text-[#1f271b] max-[425px]:bg-inherit max-[425px]:mx-0 max-[425px]:w-5 max-[425px]:px-0"
         />
       ) : (
-        <ChevronLeftIcon className="mx-1 px-3 py-1 h-10 rounded-full bg-[#f4d35e] opacity-50 text-[#1f271b]" />
+        <ChevronLeftIcon className="mx-1 px-3 py-1 h-10 rounded-full bg-[#f4d35e] opacity-50 text-[#1f271b] max-[425px]:hidden" />
       )}
       {resultsArray.map(
         (pages, index) =>
@@ -22,7 +22,7 @@ const Pagination = ({ page, totalResults, handlePages }) => {
           pages > page - 6 && (
             <button
               key={index}
-              className={`mx-1 px-3 py-1 h-10 w-10 rounded-full ${
+              className={`mx-1 px-3 py-1 h-10 w-10 rounded-full max-[425px]:mx-0 max-[425px]:px-0 max-[425px]:bg-inherit max-[425px]:text-xs  ${
                 page === index + 1
                   ? "bg-[#1f271b] text-white"
                   : "bg-[#f4d35e] text-[#1f271b]"
@@ -36,10 +36,10 @@ const Pagination = ({ page, totalResults, handlePages }) => {
       {resultsArray.length !== page ? (
         <ChevronRightIcon
           onClick={() => handlePages(page + 1)}
-          className="mx-1 px-3 py-1 h-10 rounded-full bg-[#f4d35e] text-[#1f271b]"
+          className="mx-1 px-3 py-1 h-10 rounded-full bg-[#f4d35e] text-[#1f271b] max-[425px]:bg-inherit max-[425px]:mx-0 max-[425px]:w-5 max-[425px]:px-0"
         />
       ) : (
-        <ChevronRightIcon className="mx-1 px-3 py-1 h-10 rounded-full bg-[#f4d35e] opacity-50 text-[#1f271b]" />
+        <ChevronRightIcon className="mx-1 px-3 py-1 h-10 rounded-full bg-[#f4d35e] opacity-50 text-[#1f271b] max-[425px]:hidden" />
       )}
     </div>
   );

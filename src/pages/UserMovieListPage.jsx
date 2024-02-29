@@ -37,22 +37,32 @@ function UserMovieListPage() {
             return (
               <div
                 key={movieObj.movie_id}
-                className="w-full modal_box mb-5 px-4 lg:px-16 "
+                className="w-full modal_box mb-5 px-4 lg:px-16 max-[768px]:mt-5"
               >
-                <div className="flex justify-start">
-                  <div>
+                <div className="flex justify-start  max-[425px]:flex-col">
+                  <div className="max-[425px]:flex max-[425px]:justify-center">
                     <img
                       className="w-4/6"
                       src={movieObj.imgUrl}
                       alt={movieObj.title}
                     />
                   </div>
-                  <div className="w-11/12">
-                    <h1 className="font-bold text-lg">{movieObj.title}</h1>
-                    <p className="mt-5">{movieObj.description}</p>
-                    <p className="font-bold mt-5">Friends comments:</p>
-                    <p className="font-bold mt-5">Friends rating:</p>
-                    <p className="font-bold mt-5">Added to movie list:</p>
+                  <div className="w-11/12 max-[425px]:w-full">
+                    <h1 className="font-bold text-lg max-[425px]:text-base max-[425px]:text-center max-[425px]:mt-5">
+                      {movieObj.title}
+                    </h1>
+                    <p className="mt-5 max-[425px]:text-sm">
+                      {movieObj.description}
+                    </p>
+                    <p className="font-bold mt-5 max-[425px]:text-sm">
+                      Friends comments:
+                    </p>
+                    <p className="font-bold mt-5 max-[425px]:text-sm">
+                      Friends rating:
+                    </p>
+                    <p className="font-bold mt-5 max-[425px]:text-sm">
+                      Added to movie list:
+                    </p>
                   </div>
                 </div>
               </div>

@@ -34,7 +34,7 @@ function FriendsPage() {
     setFilterValue(event.target.value);
   };
 
-  const handleFollow = (follows, userName, email) => {
+  const handleFollow = (follows, userName, email, img_url) => {
     const data = {
       follows,
       userName,
@@ -47,7 +47,7 @@ function FriendsPage() {
       .then((response) => {
         toast.success(response?.data.msg || `You are following ${follows}`);
         setFollowingList((currentFollowList) => [
-          { id: follows, email, userName },
+          { id: follows, email, userName, img_url },
           ...currentFollowList,
         ]);
       })
@@ -121,7 +121,12 @@ function FriendsPage() {
                 ) : (
                   <button
                     onClick={() =>
-                      handleFollow(user.id, user.userName, user.email)
+                      handleFollow(
+                        user.id,
+                        user.userName,
+                        user.email,
+                        user.img_url
+                      )
                     }
                     className="button px-4 py-2 mt-2 mb-2 rounded focus:outline-none focus:shadow-outline"
                   >
@@ -150,6 +155,7 @@ function FriendsPage() {
                 key={followObj.id}
                 className="flex justify-between items-center border border-white rounded px-2 mt-2 shadow-md"
               >
+                {console.log("followObj ===", followObj)}
                 <div className="flex items-center gap-5">
                   {followObj.img_url ? (
                     <img

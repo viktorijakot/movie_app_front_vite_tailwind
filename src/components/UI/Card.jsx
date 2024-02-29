@@ -79,7 +79,7 @@ function Card({ imgSrc, description = "", button, title, link, movieId }) {
         </div>
         <div className="bottom">
           <div>
-            <p className="mb-5 description">{description}</p>
+            <p className="mb-10 line-clamp-3 description">{description}</p>
             <div
               className={
                 isUserLoggedIn
