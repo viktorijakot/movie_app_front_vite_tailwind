@@ -6,13 +6,22 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import Card from "../components/UI/Card";
+import Pagination from "../components/UI/Pagination";
 
 function MoviesPage() {
   const [movies, setMovies] = useState(null);
   const [plot, setPlot] = useState(null);
-
+  const [page, setPage] = useState(1);
+  const [totalResults, setTotalResults] = useState(0);
+  console.log("page ===", page);
+  console.log("totalResults ===", +totalResults);
   // const navigate = useNavigate();
   console.log("movies ===", movies);
+
+  const handlePages = (pageNumber) => {
+    setPage(pageNumber);
+    getAxiosData(formik.values.movie_title, page);
+  };
   const formik = useFormik({
     initialValues: {
       movie_title: "",
@@ -25,16 +34,14 @@ function MoviesPage() {
       getAxiosData(values.movie_title);
     },
   });
-  console.log("formik values ===", formik.values);
 
   const getAxiosData = (data) => {
     axios
-      .get(`https://www.omdbapi.com/?apikey=96949423&s=${data}`)
+      .get(`https://www.omdbapi.com/?apikey=96949423&s=${data}&page=${page}`)
       .then((resp) => {
-        console.log("resp ===", resp.data.Search);
         setMovies(resp.data.Search);
-        console.log("movies ===", movies);
-        formik.resetForm;
+        setTotalResults(resp.data.totalResults);
+        // formik.resetForm;
       })
       .catch((error) => {
         toast.error(error);
@@ -65,6 +72,11 @@ function MoviesPage() {
             Search
           </button>
         </form>
+        <Pagination
+          page={page}
+          totalResults={totalResults}
+          handlePages={handlePages}
+        />
         <div className="result grid grid-cols-4 gap-4 mt-5 max-[425px]:grid-cols-1 max-[768px]:grid-cols-2 max-[1024px]:grid-cols-3">
           {movies &&
             movies.map((movie) => {
@@ -89,6 +101,11 @@ function MoviesPage() {
               );
             })}
         </div>
+        <Pagination
+          page={page}
+          totalResults={totalResults}
+          handlePages={handlePages}
+        />
       </div>
     </div>
   );
