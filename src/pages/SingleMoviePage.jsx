@@ -4,12 +4,20 @@ import { Link, useParams } from "react-router-dom";
 import { useAuthContext } from "../store/AuthCtxProvider";
 import toast from "react-hot-toast";
 import { URL_BASE } from "../components/helper";
+import SmartInput from "../components/UI/SmartInput";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import Comments from "./comments/Comments";
+import useGetApiData from "../hooks/useGetApiData";
 
 function SingleMoviePage() {
   const [movie, setMovie] = useState();
   const { id } = useParams();
-  const { token } = useAuthContext();
+  const { token, userName, email, userId, imgUrl } = useAuthContext();
   const [like, setLike] = useState(false);
+  const [commentsList, setCommentsList] = useGetApiData(
+    `${URL_BASE}comments/${id}`
+  );
 
   useEffect(() => {
     axios
@@ -84,6 +92,72 @@ function SingleMoviePage() {
         toast.error(error.response.data.error);
       });
   };
+
+  const formik = useFormik({
+    initialValues: {
+      comment: "",
+    },
+    validationSchema: Yup.object({
+      comment: Yup.string().min(3).required(),
+    }),
+    onSubmit: (values, actions) => {
+      sendAxiosData(values.comment);
+
+      actions.resetForm();
+    },
+  });
+  console.log("comments===", commentsList);
+  function sendAxiosData(values) {
+    const data = {
+      movieId: id,
+      comment: values,
+    };
+    axios
+      .post(`${URL_BASE}/comments`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((resp) => {
+        console.log("resp", resp);
+        toast.success("You created a new comment!");
+        setCommentsList((currentComments) => [
+          ...currentComments,
+          {
+            comment: values.comment,
+            email,
+            userName,
+            user_id: userId,
+            created_at: new Date().toLocaleString("lt", "long"),
+            img_url: imgUrl,
+            id: resp.data.id,
+          },
+        ]);
+      })
+      .catch((error) => {
+        console.log("register error ===", error);
+        const klaida = error.response.data.error;
+        toast.error(klaida);
+      });
+  }
+
+  const handleCommentdelete = (commentId) => {
+    axios
+      .delete(`${URL_BASE}comments/${commentId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        toast.success(`Your comment is successfully deleted!`);
+        setCommentsList((currentComments) =>
+          currentComments.filter(
+            (currentCommentObj) => currentCommentObj.id !== commentId
+          )
+        );
+      })
+      .catch((error) => {
+        toast.error(error.response.data.error);
+      });
+  };
   return (
     <div className="container min-h-screen flex justify-center">
       <div className="movieSingle  w-full mt-28 mb-24  modal_box px-4 lg:px-16 ">
@@ -145,7 +219,22 @@ function SingleMoviePage() {
             </div>
           </section>
         )}
-        <div className="flex justify-center gap-4 items-center buttons mt-3">
+        <Comments commentsList={commentsList} onDelete={handleCommentdelete} />
+        <form onSubmit={formik.handleSubmit} className="mt-10" noValidate>
+          <SmartInput
+            id="comment"
+            formik={formik}
+            type="textarea"
+            placeholder="Your Comment"
+          />
+          <button
+            type="submit"
+            className="button py-2 px-4  rounded focus:outline-none focus:shadow-outline"
+          >
+            Post
+          </button>
+        </form>
+        <div className="flex justify-center mb-5 gap-4 items-center buttons mt-3">
           <p
             className={
               !like
@@ -168,6 +257,7 @@ function SingleMoviePage() {
             Back
           </Link>
         </div>
+
         {!movie && (
           <section className="flex justify-center items-center gap-5  max-[425px]:flex-col">
             <div className="w-6/12 max-[425px]:min-w-full">

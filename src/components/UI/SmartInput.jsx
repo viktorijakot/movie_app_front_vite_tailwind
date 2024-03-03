@@ -13,7 +13,7 @@ function SmartInput({
       onChange={formik.handleChange}
       onBlur={formik.handleBlur}
       value={formik.values[id]}
-      placeholder=""
+      placeholder={placeholder}
       className="w-full px-3 py-2 border border-gray-300 rounded shadow-sm focus:outline-none  focus:ring-teal-600 focus:border-teal-600"
       id={id}
       rows="3"
@@ -23,9 +23,11 @@ function SmartInput({
   return (
     <>
       <label className="w-full ">
-        <span className="block">
-          {id.charAt(0).toUpperCase() + id.slice(1).replace("_", " ")}
-        </span>
+        {!placeholder && (
+          <span className="block">
+            {id.charAt(0).toUpperCase() + id.slice(1).replace("_", " ")}
+          </span>
+        )}
 
         {type === "textarea" ? (
           areaInput
