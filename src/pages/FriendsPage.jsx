@@ -137,25 +137,25 @@ function FriendsPage() {
             </li>
           ))}
         </ul>
-        <h1
-          onClick={() => setShowFollowing(!showFollowing)}
-          className={
-            !showFollowing
-              ? "text-2xl font-bold mt-10 text-[#f4d35e] cursor-pointer hover:underline"
-              : "text-2xl font-bold mt-10 text-white cursor-pointer underline"
-          }
-        >
-          Following{" "}
-          {!showFollowing ? <span>({followingList.length})</span> : ":"}
-        </h1>
-        <ul>
+
+        <ul className="py-2 border border-white rounded px-2 mt-3 shadow-md divide-y  divide-[#f4d35e] bg-white">
+          <h1
+            onClick={() => setShowFollowing(!showFollowing)}
+            className={
+              !showFollowing
+                ? "text-2xl font-bold  text-[#f4d35e] cursor-pointer hover:underline max-[425px]:text-base"
+                : "text-2xl font-bold   text-[#f4d35e] mb-2 cursor-pointer underline max-[425px]:text-base"
+            }
+          >
+            Following{" "}
+            {!showFollowing ? <span>({followingList.length})</span> : ":"}
+          </h1>
           {showFollowing &&
             followingList?.map((followObj) => (
               <li
                 key={followObj.id}
                 className="flex justify-between items-center border border-white rounded px-2 mt-2 shadow-md"
               >
-                {console.log("followObj ===", followObj)}
                 <div className="flex items-center gap-5">
                   {followObj.img_url ? (
                     <img
@@ -189,18 +189,19 @@ function FriendsPage() {
               </li>
             ))}
         </ul>
-        <h1
-          onClick={() => setShowFollowers(!showFollowers)}
-          className={
-            !showFollowers
-              ? "text-2xl font-bold mt-10 text-[#f4d35e] cursor-pointer hover:underline"
-              : "text-2xl font-bold mt-10 text-white cursor-pointer underline"
-          }
-        >
-          Followers{" "}
-          {!showFollowers ? <span>({followersList.length})</span> : ":"}
-        </h1>
-        <ul>
+
+        <ul className="py-2 border border-white rounded px-2 mt-3 shadow-md divide-y  divide-[#f4d35e] bg-white">
+          <h1
+            onClick={() => setShowFollowers(!showFollowers)}
+            className={
+              !showFollowers
+                ? "text-2xl font-bold  text-[#f4d35e] cursor-pointer hover:underline max-[425px]:text-base"
+                : "text-2xl font-bold   text-[#f4d35e] mb-2 cursor-pointer underline max-[425px]:text-base"
+            }
+          >
+            Followers{" "}
+            {!showFollowers ? <span>({followersList.length})</span> : ":"}
+          </h1>
           {showFollowers &&
             followersList?.map((followerObj) => (
               <li
@@ -245,7 +246,8 @@ function FriendsPage() {
                         handleFollow(
                           followerObj.id,
                           followerObj.userName,
-                          followerObj.email
+                          followerObj.email,
+                          followerObj.img_url
                         )
                       }
                       className="button px-4 py-2 mt-2 mb-2 rounded focus:outline-none focus:shadow-outline"

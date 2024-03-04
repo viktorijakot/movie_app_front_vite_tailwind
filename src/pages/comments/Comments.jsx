@@ -10,13 +10,13 @@ function Comments({ commentsList = [], onDelete }) {
 
   return (
     <div>
-      <ul className="py-2 border border-white rounded px-2 mt-10 shadow-md divide-y  divide-[#f4d35e] bg-white">
+      <ul className="py-2 border border-white rounded px-2 mt-3 shadow-md divide-y  divide-[#f4d35e] bg-white">
         <h1
           onClick={() => setShow(!show)}
           className={
             !show
-              ? "text-2xl font-bold  text-[#f4d35e] cursor-pointer hover:underline"
-              : "text-2xl font-bold   text-[#f4d35e] mb-2 cursor-pointer underline"
+              ? "text-2xl font-bold  text-[#f4d35e] cursor-pointer hover:underline max-[425px]:text-base"
+              : "text-2xl font-bold   text-[#f4d35e] mb-2 cursor-pointer underline max-[425px]:text-base"
           }
         >
           Comments {!show ? <span>({commentsList.length})</span> : ":"}
@@ -24,8 +24,8 @@ function Comments({ commentsList = [], onDelete }) {
         {show &&
           commentsList?.map((commentObj) => (
             <li key={commentObj.id} className="pt-3 pb-3">
-              <div className="flex justify-between items-center ">
-                <div className="flex items-center gap-5">
+              <div className="flex justify-between items-center max-[425px]:flex-col-reverse max-[425px]:items-start max-[425px]:gap-2">
+                <div className="flex items-center gap-5 max-[425px]:gap-1">
                   {commentObj.img_url ? (
                     <img
                       className="border border-white object-cover  w-10 h-10 rounded-full"
@@ -41,15 +41,17 @@ function Comments({ commentsList = [], onDelete }) {
                     <img className="userSvg py-2 " src={userSvg} alt="user" />
                   )}
                   <div>
-                    <p>{commentObj.userName}</p>
+                    <p className="max-[425px]:text-xs max-[425px]:font-bold">
+                      {commentObj.userName}
+                    </p>
                     <p className="text-xs">{commentObj.email}</p>
                   </div>
                 </div>
-                <div>
+                <div className="max-[425px]:self-end max-[425px]:justify-self-end">
                   {userId === commentObj.user_id && (
                     <button
                       onClick={() => onDelete(commentObj.id)}
-                      className="button  px-4 py-2  rounded focus:outline-none focus:shadow-outline"
+                      className="button  px-4 py-2  rounded focus:outline-none focus:shadow-outline max-[425px]:text-xs"
                       type="button"
                     >
                       Delete

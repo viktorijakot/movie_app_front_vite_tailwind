@@ -28,6 +28,7 @@ body {
   font-family: "Roboto Mono", monospace;
   background-color: #28afb0;
   background-image: url(/src/assets/facets.png);
+  font-size: x;
 }
 
 .header {
@@ -130,7 +131,7 @@ body {
     text-align: center;
   }
   .buttons {
-    margin-top: -2.5rem;
+    // margin-top: -2.5rem;
     position: relative;
     bottom: 0;
   }
@@ -146,7 +147,7 @@ body {
     width: 100%;
   }
   .bottom div {
-    width: 100%;
+    // width: 100%;
   }
 
   .shape {
@@ -169,7 +170,7 @@ body {
     text-align: center;
   }
   .card:hover .bottom {
-    top: 55%;
+    top: 60%;
   }
   .card:hover .top h1 {
     display: none;
@@ -213,8 +214,8 @@ body {
     }
     .card:hover .description {
       margin-top: 4rem;
-      margin-bottom: 3rem;
-      font-size: smaller;
+      // margin-bottom: 3rem;
+      // font-size: smaller;
     }
     .like {
       font-size: 50px;

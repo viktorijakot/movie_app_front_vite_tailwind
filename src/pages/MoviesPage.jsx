@@ -13,10 +13,6 @@ function MoviesPage() {
   const [plot, setPlot] = useState(null);
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
-  console.log("page ===", page);
-  console.log("totalResults ===", +totalResults);
-  // const navigate = useNavigate();
-  console.log("movies ===", movies);
 
   const handlePages = (pageNumber) => {
     setPage(pageNumber);
@@ -39,9 +35,12 @@ function MoviesPage() {
     axios
       .get(`https://www.omdbapi.com/?apikey=96949423&s=${data}&page=${page}`)
       .then((resp) => {
+        console.log("resp data ===", resp.data);
         setMovies(resp.data.Search);
         setTotalResults(resp.data.totalResults);
-        // formik.resetForm;
+        if (resp.data.Error) {
+          toast.error(resp.data.Error);
+        }
       })
       .catch((error) => {
         toast.error(error);
@@ -64,7 +63,12 @@ function MoviesPage() {
     <div className="container min-h-screen flex justify-center">
       <div className="movieCont w-full mt-28 mb-10">
         <form onSubmit={formik.handleSubmit}>
-          <SmartInput id="movie_title" formik={formik} type="text" />
+          <SmartInput
+            id="movie_title"
+            formik={formik}
+            type="text"
+            placeholder="Enter movie title"
+          />
           <button
             type="submit"
             className="button px-4 py-2 mt-5 rounded focus:outline-none focus:shadow-outline"

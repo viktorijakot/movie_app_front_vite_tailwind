@@ -45,10 +45,20 @@ function Header() {
             <p className="text-sm">{userName}</p>
           </NavLink>
         )}
-        <nav className="flex justify-center items-center">
+        <nav className="flex justify-center items-center ">
           {!isUserLoggedIn && (
             <>
-              <NavLink className={"login px-4 py-2 me-2 "} to={"/login"}>
+              <NavLink
+                ariaCurrent="page"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "login  px-4 py-2 me-2 hover:underline "
+                    : isActive
+                    ? "login  px-4 py-2 me-2 underline "
+                    : "login  px-4 py-2 me-2 hover:underline "
+                }
+                to={"/login"}
+              >
                 Login
               </NavLink>
               <NavLink
@@ -63,25 +73,53 @@ function Header() {
             <>
               <FlyOutMenu />
               <NavLink
-                className={"login mobile px-4 py-2 me-2 "}
+                ariaCurrent="page"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "login mobile px-4 py-2 me-2 hover:underline max-[768px]:me-0 max-[768px]:px-3"
+                    : isActive
+                    ? "login mobile px-4 py-2 me-2 underline max-[768px]:me-0 max-[768px]:px-3"
+                    : "login mobile px-4 py-2 me-2 hover:underline max-[768px]:me-0 max-[768px]:px-3"
+                }
                 to={"/movie-list"}
               >
                 Movie search
               </NavLink>
               <NavLink
-                className={"login mobile px-4 py-2 me-2 "}
+                ariaCurrent="page"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "login mobile px-4 py-2 me-2 hover:underline max-[768px]:me-0 max-[768px]:px-3"
+                    : isActive
+                    ? "login mobile px-4 py-2 me-2 underline max-[768px]:me-0 max-[768px]:px-3"
+                    : "login mobile px-4 py-2 me-2 hover:underline max-[768px]:me-0 max-[768px]:px-3"
+                }
                 to={"/movie-list"}
               >
                 Activity
               </NavLink>
               <NavLink
-                className={"login mobile px-4 py-2 me-2 "}
+                ariaCurrent="page"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "login mobile px-4 py-2 me-2 hover:underline max-[768px]:me-0 max-[768px]:px-3"
+                    : isActive
+                    ? "login mobile px-4 py-2 me-2 underline max-[768px]:me-0 max-[768px]:px-3"
+                    : "login mobile px-4 py-2 me-2 hover:underline max-[768px]:me-0 max-[768px]:px-3"
+                }
                 to={"/friends-list"}
               >
                 Friends
               </NavLink>
               <NavLink
-                className={"login mobile px-4 py-2 me-2 "}
+                ariaCurrent="page"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "login mobile px-4 py-2 me-2 hover:underline max-[768px]:me-0 max-[768px]:px-3"
+                    : isActive
+                    ? "login mobile px-4 py-2 me-2 underline max-[768px]:me-0 max-[768px]:px-3"
+                    : "login mobile px-4 py-2 me-2 hover:underline max-[768px]:me-0 max-[768px]:px-3"
+                }
                 to={"/my-movie-list"}
               >
                 My movies

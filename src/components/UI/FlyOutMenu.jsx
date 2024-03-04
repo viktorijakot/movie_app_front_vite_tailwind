@@ -30,22 +30,63 @@ function FlyOutMenu() {
         <div className="menu-content">
           <ul>
             <li>
-              <NavLink onClick={() => setIsMenuOpen(false)} to={"/movie-list"}>
+              <NavLink
+                onClick={() => setIsMenuOpen(false)}
+                to={"/movie-list"}
+                ariaCurrent="page"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "hover:underline"
+                    : isActive
+                    ? "underline "
+                    : "hover:underline"
+                }
+              >
                 Movie search
               </NavLink>
             </li>
             <li>
-              <NavLink onClick={() => setIsMenuOpen(false)} to={"/movie-list"}>
+              <NavLink
+                ariaCurrent="page"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "hover:underline"
+                    : isActive
+                    ? "underline "
+                    : "hover:underline"
+                }
+                onClick={() => setIsMenuOpen(false)}
+                to={"/movie-list"}
+              >
                 Activities
               </NavLink>
             </li>
             <li>
-              <NavLink onClick={() => setIsMenuOpen(false)} to={"/movie-list"}>
+              <NavLink
+                ariaCurrent="page"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "hover:underline"
+                    : isActive
+                    ? "underline "
+                    : "hover:underline"
+                }
+                onClick={() => setIsMenuOpen(false)}
+                to={"/movie-list"}
+              >
                 Friends
               </NavLink>
             </li>
             <li>
               <NavLink
+                ariaCurrent="page"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "hover:underline"
+                    : isActive
+                    ? "underline "
+                    : "hover:underline"
+                }
                 onClick={() => setIsMenuOpen(false)}
                 to={"/my-movie-list"}
               >
@@ -53,7 +94,17 @@ function FlyOutMenu() {
               </NavLink>
             </li>
             <li>
-              <Link onClick={handleLogout}>
+              <Link
+                ariaCurrent="page"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "hover:underline"
+                    : isActive
+                    ? "underline "
+                    : "hover:underline"
+                }
+                onClick={handleLogout}
+              >
                 <strong>Logout</strong>
               </Link>
             </li>

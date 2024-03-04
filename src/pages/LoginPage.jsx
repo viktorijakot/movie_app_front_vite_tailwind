@@ -48,7 +48,7 @@ function LoginPage() {
 
   return (
     <div className="container min-h-screen flex justify-center items-center">
-      <div className="lg:w-1/2 xl:w-1/2 modal_box px-4 md:px-16">
+      <div className="w-5/6 lg:w-1/2 xl:w-1/2 modal_box px-4 mt-28 mb-10 md:px-10 max-[768px]:mt-28 max-[425px]:w-full  max-[425px]:mt-28 ">
         <h1 className="text-3xl mb-10">
           Log <span className="in">in</span>
         </h1>
